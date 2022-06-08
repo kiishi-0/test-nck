@@ -33,6 +33,10 @@ const TopContentOne = styled(TopContentDivider)`
     `
 const TopContentTwo = styled(TopContentDivider)`
     align-items: end;
+    p{
+        width: 100%;
+        text-align: right;
+    }
 `
 
 const ContentItems = styled.p`
