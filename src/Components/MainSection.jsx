@@ -67,7 +67,8 @@ const TitleDiv = styled.div`
 `
 
 export default function MainSection(props) {
-    const [ccNum, SetCCNum] = useState('XXXX XXXX XXXX XXXX');
+    const [ccNum, setCCNum] = useState('XXXX XXXX XXXX XXXX');
+    const [ccDate, setCCDate] = useState('MM/YYYY');
   return (
     <MainSectionContainer>
         <MainSectionContainerHeader>
@@ -83,8 +84,8 @@ export default function MainSection(props) {
         </MainSectionContainerHeader>
         
         <SectionContent>
-            <CardDisplay cc={ccNum}></CardDisplay>
-            <FormSection setNum={SetCCNum}></FormSection>
+            <CardDisplay cc={ccNum} ccd={ccDate}></CardDisplay>
+            <FormSection setNum={setCCNum} setDate={setCCDate}></FormSection>
         </SectionContent>
         
     </MainSectionContainer>
