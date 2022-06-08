@@ -45,6 +45,11 @@ const Card = styled.div`
         height: 205px;
         padding: 10px 35px;
     }
+    @media (max-width: 375px) {
+        min-width: 300px;
+        height: 205px;
+        padding: 10px 35px;
+    }
 
 `
 const CardTitle = styled.h6`
