@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FormSection from './FormSection';
 import styled from 'styled-components';
 import CardDisplay from './CardDisplay';
@@ -23,7 +23,7 @@ const SectionContent = styled.div`
     display: flex;
     position: relative;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 `
 
 const LogoDiv = styled.div`
@@ -38,19 +38,53 @@ const LogoDiv = styled.div`
     }
 
 `
-// const
+const MainSectionContainerHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    div{
+        width: 30%;
+    }
+`
+const TitleDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    justify-content: center;
+    h2{
+        width: 100%;
+        font-weight: 600;
+        padding: 5px 0;
+    }
+    p{
+        color: #9DA0AA;
+        // margin-bottom: 20px;
+        font-size: 14px;
+    }
+`
 
-export default function MainSection() {
+export default function MainSection(props) {
+    const [ccNum, SetCCNum] = useState('XXXX XXXX XXXX XXXX');
   return (
     <MainSectionContainer>
-        <LogoDiv>
-            <img src={visa} alt="Visa" />
-            <img src={discover} alt="Discover" />
-            <img src={paypal} alt="Paypal" />
-        </LogoDiv>
+        <MainSectionContainerHeader>
+            <TitleDiv>
+                <h2>Payment Information</h2>
+                <p>Choose your method of payment</p>
+            </TitleDiv>
+            <LogoDiv>
+                <img src={visa} alt="Visa" />
+                <img src={discover} alt="Discover" />
+                <img src={paypal} alt="Paypal" />
+            </LogoDiv>
+        </MainSectionContainerHeader>
+        
         <SectionContent>
-            <CardDisplay></CardDisplay>
-            <FormSection></FormSection>
+            <CardDisplay cc={ccNum}></CardDisplay>
+            <FormSection setNum={SetCCNum}></FormSection>
         </SectionContent>
         
     </MainSectionContainer>

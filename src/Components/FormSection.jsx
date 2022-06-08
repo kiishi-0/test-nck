@@ -72,22 +72,24 @@ const FormDivider = styled.div`
 `
 
 
-export default function FormSection() {
+export default function FormSection(props) {
     const [cardNo, setCardNo] = useState('');
     const HandleCardNumber = e =>{
         let num = [...e];
+        console.log(num[num.length -1])
+        
         num = num.filter(el => el !== " ")
         console.log(num)
         let text = num.map((data, index) => {
-
-            if ((index + 1) % 4 === 0) {
-              data = data + " "
-            }
+            if ((index) % 4 === 0) {
+              data = " " + data
+            } 
           
             return data
           })
-        console.log(text.join())
+        console.log()
         setCardNo(text.join(""))
+        props.setNum(text.join(""))
     } 
   return (
     <FormSectionContainer>
@@ -97,7 +99,7 @@ export default function FormSection() {
             <FormSectionOne>
                 <InputDiv>
                     <label htmlFor="card">Credit Card Number:</label>
-                    <input id="card" type="tel" inputMode="numeric" onChange={ e => HandleCardNumber(e.target.value)} pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="19" placeholder="xxxx xxxx xxxx xxxx" value={cardNo}/>
+                    <input id="card" type="tel" inputMode="numeric" onChange={ e => HandleCardNumber(e.target.value)} pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="20" placeholder="xxxx xxxx xxxx xxxx" value={cardNo}/>
                 </InputDiv>
                 <InputDiv>
                     <label htmlFor="code">Security Code:</label>
@@ -117,7 +119,7 @@ export default function FormSection() {
             
         </FormDivider>
         <FormSectionOne>
-            <InputDivRow class="row-direction">
+            <InputDivRow >
                 <input id="later" type="radio" />
                 <label htmlFor="post">Use this card for next time purchase</label>
             </InputDivRow>
