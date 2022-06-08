@@ -64,6 +64,8 @@ const SubmitButton = styled.button`
     height: 48px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+    font-size: 16px;
 `
 const FormDivider = styled.div`
     display: flex;
@@ -95,9 +97,6 @@ export default function FormSection(props) {
     const HandleCardNumber = e =>{
         let num = [...e];
         console.log(num[num.length -1])
-        if(e === ""){
-            setCardNo("XXXX XXXX XXXX XXXX")
-        }
         
         num = num.filter(el => el !== " ")
         console.log(num)
