@@ -9,6 +9,9 @@ const FormSectionContainer = styled.form`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    @media (max-width: 768px) {
+        width: 90%;
+    }
 `
 const FormSectionOne = styled.div`
     display: flex;
@@ -41,6 +44,9 @@ const InputDiv = styled.div`
     justify-content: center;
     width: 100%;
     margin-right: 20px;
+    @media (max-width: 414px) {
+        margin-right: 0;
+    }
     
 `
 const InputDivRow = styled(InputDiv)`
@@ -53,6 +59,11 @@ const InputDivRow = styled(InputDiv)`
         width: 20px;
         height: 20px;
         margin-right: 10px;
+    }
+    label{
+        @media (max-width: 412px) {
+            font-size: 14px;
+        }
     }
 `
 const SubmitButton = styled.button`
@@ -71,6 +82,9 @@ const FormDivider = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 
@@ -119,21 +133,21 @@ export default function FormSection(props) {
             <FormSectionOne>
                 <InputDiv>
                     <label htmlFor="card">Credit Card Number:</label>
-                    <input id="card" type="tel" inputMode="numeric" onChange={ e => HandleCardNumber(e.target.value)} pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="20" placeholder="xxxx xxxx xxxx xxxx" value={cardNo}/>
+                    <input id="card" type="tel" inputMode="numeric" onChange={ e => HandleCardNumber(e.target.value)} pattern="[0-9 \s]{13,20}" autoComplete="cc-number" maxLength="20" placeholder="xxxx xxxx xxxx xxxx" value={cardNo}/>
                 </InputDiv>
                 <InputDiv>
                     <label htmlFor="code">Security Code:</label>
-                    <input id="code" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}"  maxLength="3" placeholder="- - -" />
+                    <input id="code" type="tel" inputMode="numeric" pattern="[0-9\s]{3}"  maxLength="3" placeholder="- - -" />
                 </InputDiv>
             </FormSectionOne>
             <FormSectionOne>
                 <InputDiv>
                     <label htmlFor="date">Expiration Date:</label>
-                    <input id="date" type="tel" inputMode="text" value={cardDate} onChange={ e => HandleCardDate(e.target.value)} pattern="[0-9\s]{13,19}"  maxLength="5" placeholder="MM/YY" />
+                    <input id="date" type="tel" inputMode="text" value={cardDate} onChange={ e => HandleCardDate(e.target.value)} pattern="[0-9/\s]{3,5}"  maxLength="5" placeholder="MM/YY" />
                 </InputDiv>
                 <InputDiv>
                     <label htmlFor="post">Postal Code:</label>
-                    <input id="post" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}" autoComplete="cc-number" maxLength="5" placeholder="- - - -" />
+                    <input id="post" type="tel" inputMode="numeric" pattern="[0-9\s]{4,5}" autoComplete="cc-number" maxLength="5" placeholder="- - - -" />
                 </InputDiv>
             </FormSectionOne>
             

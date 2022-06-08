@@ -24,7 +24,7 @@ const TopSection = styled.div`
 const TopContentDivider = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 25px 20px;
 `
 const TopContentOne = styled(TopContentDivider)`
@@ -40,12 +40,22 @@ const ContentItems = styled.p`
     font-size: 20px;
     font-weight: 600;
     margin: 6px 0;
+    width: 100%;
+    text-align: left;
     span{
         color: #D3D6DC;
+    }
+    @media (max-width: 414px) {
+        font-size: 18px;
     }
 `
 const FinalSection = styled(TopSection)`
     border: 0;
+    @media (max-width: 414px) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
 `
 const SubmitButton = styled.button`
     width: 300px;

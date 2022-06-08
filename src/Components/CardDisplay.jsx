@@ -11,6 +11,15 @@ const CardDisplayContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    // background: red;
+    @media (max-width: 768px) {
+        align-items: center;
+        margin: 50px 0;
+        width: 90%;
+    }
+    @media (max-width: 412px) {
+        margin: 20px 0;
+    }
 `
 const Card = styled.div`
     position: relative;
@@ -24,13 +33,19 @@ const Card = styled.div`
     max-width: 450px;
     min-width: 400px;
     max-height: 275px;
-    min-height: 225px;
+    min-height: 245px;
     border-radius: 5px;
     h6, h5, p{
         color: #fff;
         font-weight: 500;
         margin: 7px 0;
     }
+    @media (max-width: 414px) {
+        width: 320px;
+        height: 205px;
+        padding: 10px 35px;
+    }
+
 `
 const CardTitle = styled.h6`
     font-size: 12px;
