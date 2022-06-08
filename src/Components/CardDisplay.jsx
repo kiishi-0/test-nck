@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import chip from '../images/chip.png'
 import wifi from '../images/wifi.svg'
+import mc from '../images/mc_symbol.svg'
 
 
 const CardDisplayContainer = styled.div`
@@ -18,10 +19,12 @@ const Card = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 35px 25px;
+    padding: 35px;
     background: linear-gradient(45deg, #DE5643, #6263C4);
-    width: 450px;
-    height: 275px;
+    max-width: 450px;
+    min-width: 400px;
+    max-height: 275px;
+    min-height: 225px;
     border-radius: 5px;
     h6, h5, p{
         color: #fff;
@@ -46,7 +49,7 @@ const LogoDiv = styled.div`
     // background: red;
     justify-content: flex-start;
     
-    left: -5%;
+    left: -8%;
     img{
         height: 48px;
     }
@@ -55,6 +58,14 @@ const LogoDiv = styled.div`
 const WifiImage = styled.img`
     width: 20px;
     margin-right: 10px;
+    transform: rotate(90deg);
+`
+const MCard = styled.img`
+    position: absolute;
+    height: 70px;
+    right: 0;
+    bottom: 0;
+    margin-right: 20px;
 `
 
 export default function CardDisplay(props) {
@@ -70,6 +81,7 @@ export default function CardDisplay(props) {
             <CardTitle>EXPIRATION DATE</CardTitle>
             <CardNumber>{props.ccd}</CardNumber>
             <p>John Doe</p>
+            <MCard src={mc} alt="Master Card"/>
         </Card>
     </CardDisplayContainer>
   )

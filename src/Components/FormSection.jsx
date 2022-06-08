@@ -77,12 +77,27 @@ export default function FormSection(props) {
     const [cardDate, setCardDate] = useState('');
 
     const HandleCardDate = e =>{
-        setCardDate(e)
-        props.setDate(e)
+        let num = [...e];
+        // console.log(num[num.length -1])
+        
+        num = num.filter(el => el !== "/")
+        // console.log(num)
+        let text = num.map((data, index) => {
+            if (index === 2) {
+              data = "/" + data
+            } 
+          
+            return data
+          })
+        setCardDate(text.join(""))
+        props.setDate(text.join(""))
     }
     const HandleCardNumber = e =>{
         let num = [...e];
         console.log(num[num.length -1])
+        if(e === ""){
+            setCardNo("XXXX XXXX XXXX XXXX")
+        }
         
         num = num.filter(el => el !== " ")
         console.log(num)
@@ -109,13 +124,13 @@ export default function FormSection(props) {
                 </InputDiv>
                 <InputDiv>
                     <label htmlFor="code">Security Code:</label>
-                    <input id="code" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}"  maxLength="3" placeholder="- - -" value={cardDate}/>
+                    <input id="code" type="tel" inputMode="numeric" pattern="[0-9\s]{13,19}"  maxLength="3" placeholder="- - -" />
                 </InputDiv>
             </FormSectionOne>
             <FormSectionOne>
                 <InputDiv>
                     <label htmlFor="date">Expiration Date:</label>
-                    <input id="date" type="tel" inputMode="text" onChange={ e => HandleCardDate(e.target.value)} pattern="[0-9\s]{13,19}"  maxLength="5" placeholder="MM/YY" />
+                    <input id="date" type="tel" inputMode="text" value={cardDate} onChange={ e => HandleCardDate(e.target.value)} pattern="[0-9\s]{13,19}"  maxLength="5" placeholder="MM/YY" />
                 </InputDiv>
                 <InputDiv>
                     <label htmlFor="post">Postal Code:</label>
